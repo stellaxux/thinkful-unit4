@@ -13,18 +13,17 @@ import numpy as np
 
 iris = datasets.load_iris()
 
-plt.scatter(iris.data[:, 0], iris.data[:, 1], c=iris.target)
-plt.xlabel(iris.feature_names[0])
-plt.ylabel(iris.feature_names[1])
+plt.scatter(iris.data[:, 1], iris.data[:, 2], c=iris.target)
+plt.xlabel(iris.feature_names[1])
+plt.ylabel(iris.feature_names[2])
 
 #The first 100 observations correspond to setosa and versicolor
-plt.scatter(iris.data[0:150, 0], iris.data[0:150, 1], c=iris.target[0:150])
-plt.xlabel(iris.feature_names[0])
-plt.ylabel(iris.feature_names[1])
+plt.scatter(iris.data[0:150, 1], iris.data[0:150, 2], c=iris.target[0:150])
+plt.xlabel(iris.feature_names[1])
+plt.ylabel(iris.feature_names[2])
 
 svc = svm.SVC(kernel='linear', C=0.1)
-from sklearn import datasets
-X = iris.data[0:150, 0:2]
+X = iris.data[0:150, 1:3]
 y = iris.target[0:150]
 svc.fit(X, y)
 
